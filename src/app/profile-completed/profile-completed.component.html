@@ -1,0 +1,68 @@
+<div fxLayout="column" fxLayoutGap="1em">
+
+    <img>
+
+    <div>
+        <h2>Super</h2>
+        <h1>Dein Proil ist vollständig</h1>
+        <p>
+            Du hast nun vollen Zugriff auf die Auswertungen und Funktionen der App:
+        </p>
+    </div>
+
+    <mat-card>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item >
+                    <mat-icon matListIcon>done</mat-icon>
+                    <p>
+                       Überblick über aktuelle Mitmenschen an bestimmten Orten
+                    </p>
+                </mat-list-item>
+
+                <mat-list-item >
+                    <mat-icon matListIcon>done</mat-icon>
+                    <p>
+                        Verstehe welche ptentiellen Risiken dich an den verschienden Orten begegnen
+                    </p>
+                </mat-list-item>
+
+                <mat-list-item >
+                    <mat-icon matListIcon>done</mat-icon>
+                    <p>
+                        Bekomme Benachrichtigungen bei erhöhten Ansammlungen von Menschen
+                    </p>
+                </mat-list-item>
+
+                <mat-list-item >
+                    <mat-icon matListIcon>done</mat-icon>
+                    <p>
+                        Bleibe up-to-date bei aktuellen Entscheidungen der Regierung
+                    </p>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+
+    <p>
+        Werden Personen positiv auf Corona getestet, können Riskogruppen und Menschen informiert werden, sodass rechtzeitig die entpsrechnenden Schritte eingelietet werden können.
+    </p>
+
+    <div fxLayout="row">
+        <img>
+        <div>Hilf uns alle Menschen zu erreichen auch deine Familie.</div>
+    </div>
+
+    <mat-form-field *ngFor="let email of emails; let i = index">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Alicewondertree@gmail.com" [(ngModel)]="emails[i]">
+    </mat-form-field>
+
+    <div fxLayout="row" (click)="onEmailAdd()">
+        <mat-icon>add</mat-icon>
+        weitere Menschen einladen
+    </div>
+
+    <button mat-raised-button color="primary" (click)="onEmailSend()" >Email versenden</button>
+    <button mat-button (click)="onDashboard()">Zum Dashboard</button>
+</div>

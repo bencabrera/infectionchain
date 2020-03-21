@@ -1,0 +1,41 @@
+<form fxLayout="column" [formGroup]="travelForm" fxLayoutGap="1em">
+
+    <div fxLayout="row">
+        <mat-icon>flight</mat-icon>
+        <h1>Wohin ging dieine Reise?</h1>
+    </div>
+
+    <mat-form-field>
+        <mat-label>Land Name</mat-label>
+        <input matInput placeholder="" formControlName="countryName" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Land Code</mat-label>
+        <input matInput placeholder="" formControlName="countryCode" required>
+    </mat-form-field>
+
+    <div>
+        In welchem Zeitraum?
+    </div>
+
+
+    <mat-form-field>
+        <mat-label>Von</mat-label>
+        <input matInput placeholder="" formControlName="from" required  type="date">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Bis</mat-label>
+        <input matInput placeholder="" formControlName="to" required type="date">
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Anmerkung</mat-label>
+        <input matInput placeholder="" formControlName="notice">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="onSubmit()" color="primary" [disabled]="travelForm.invalid">Reise eintragen</button>
+    <button mat-button (click)="onCancel()">Abbrechen</button>
+</form>

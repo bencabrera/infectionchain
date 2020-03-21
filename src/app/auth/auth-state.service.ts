@@ -5,23 +5,23 @@ import { Injectable } from '@angular/core';
 })
 export class AuthStateService {
 
-    public isLoggedIn: boolean = false;
+    public isLoggedIn = false;
     public jwtToken: string;
 
-	constructor() {
-		let tmp = localStorage.getItem('jwt_token');
-		if(tmp) {
-			this.jwtToken = tmp;
-			this.isLoggedIn = true;
-			console.log("already logged in");
-		}
-	}
+    constructor() {
+        let tmp = localStorage.getItem('jwt_token');
+        if (tmp) {
+            this.jwtToken = tmp;
+            this.isLoggedIn = true;
+            console.log('already logged in');
+        }
+    }
 
-	login(jwtToken) {
-		this.jwtToken = jwtToken;
-		localStorage.setItem('jwt_token', JSON.stringify(jwtToken));
-		this.isLoggedIn = true;
-	}
+    login(jwtToken) {
+        this.jwtToken = jwtToken;
+        localStorage.setItem('jwt_token', JSON.stringify(jwtToken));
+        this.isLoggedIn = true;
+    }
 
     logout() {
         // remove user from local storage to log user out

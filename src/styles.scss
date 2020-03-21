@@ -8,3 +8,13 @@ html {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+p {
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+h3 {
+	font-weight: 500;
+	font-size: 26px;
+}
