@@ -4,20 +4,19 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { AuthStateService } from './auth-state.service';
 
 @Injectable({ providedIn: 'root' })
-export class AuthGuard implements CanActivate {
+export class NotLoggedInGuard implements CanActivate {
     constructor(
         private router: Router,
         private authState: AuthStateService
     ) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (this.authState.isLoggedIn) {
-            // logged in so return true
+        if (!this.authState.isLoggedIn) {
             return true;
         }
 
         // not logged in so redirect to login page with the return url
-		this.router.navigate([''], { queryParams: { returnUrl: state.url } });
+		this.router.navigate(['']);
         return false;
     }
 }

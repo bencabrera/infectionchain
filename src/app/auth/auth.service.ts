@@ -4,24 +4,30 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { RegistrationModel } from './registration.model';
+import { AuthStateService } from './auth-state.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
 
-    public isLoggedIn: boolean = false;
-    public jwtToken: string;
+    constructor(private http: HttpClient, private authState: AuthStateService) {}
 
-    constructor(private http: HttpClient) {
-    }
+    login(email: string, password: string) {
 
-    login(username: string, password: string) {
-        return this.http.post<any>(`${environment.apiUrl}/login`, {username, password})
+		const requestOptions: Object = {
+			responseType: 'text'
+		};
+
+        return this.http.post<any>(`${environment.apiUrl}/users/login`, {
+				"email": email, 
+				"password": password
+			},
+			requestOptions
+			)
             .pipe(map(response => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('jwt_token', JSON.stringify(response.jwt_token));
-                this.isLoggedIn = true;
+				this.authState.login(response);
             }));
     }
 
@@ -30,14 +36,7 @@ export class AuthService {
             .pipe(map(response => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('jwt_token', JSON.stringify(response.jwt_token));
-                this.isLoggedIn = true;
+                this.authState.isLoggedIn = true;
             }));
-    }
-
-    logout() {
-        // remove user from local storage to log user out
-        this.jwtToken = undefined;
-        localStorage.removeItem('jwt_token');
-        this.isLoggedIn = false;
     }
 }

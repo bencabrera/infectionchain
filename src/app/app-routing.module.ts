@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './auth/auth.guard';
+import { NotLoggedInGuard } from './auth/not-logged-in.guard';
 
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { QrCodeReaderComponent } from './qr-code-handling/qr-code-reader.component';
@@ -15,9 +16,9 @@ import {StartComponent} from "./start/start.component";
 const routes: Routes = [
 	// public
 	{ path: 'start', component: StartComponent },
-	{ path: 'login', component: LoginComponent },
+	{ path: 'login', component: LoginComponent, canActivate: [NotLoggedInGuard] },
 	{ path: 'logout', component: LogoutComponent },
-	{ path: 'sign-up', component: SignUpComponent },
+	{ path: 'sign-up', component: SignUpComponent, canActivate: [NotLoggedInGuard] },
 
 	// logged in
 	{ path: '', component: HomeComponent, canActivate: [AuthGuard] },

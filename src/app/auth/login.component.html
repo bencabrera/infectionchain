@@ -4,20 +4,35 @@
 <div class="text-center mt-3">
 	<h3 class="text-xl">Login</h3>
 </div>
-<div>
-	<div class="mx-10 my-4">
-		<label>Name</label><br>
-		<input [(ngModel)]="username" style="border-color: #b9b9b9" class="appearance-none bg-transparent w-full text-gray-700 mr-3 py-1 leading-tight focus:outline-none border-b border-b-2 border-teal-500" type="text" placeholder="Michael Jackson II."/>
-	</div>
-	<div class="mx-10 my-4">
-		<label>Password</label><br>
-		<input [(ngModel)]="password" style="border-color: #b9b9b9" class="appearance-none bg-transparent w-full text-gray-700 mr-3 py-1 leading-tight focus:outline-none border-b border-b-2 border-teal-500" type="password" placeholder="123456"/>
-	</div>
-	<div class="mx-10 my-4">
-		<a href="#">Forgot password?</a>
-	</div>
+<form class="mx-10 my-4" [formGroup]="regForm" fxLayout="column" fxLayoutGap="1em">
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="jacksonalive@gmail.com">
+    </mat-form-field>
 
-	<div class="mx-10 mt-12 text-center">
-		<button (click)="onSubmit()" style="background-color: #395380" class="text-white font-bold py-2 px-4 rounded w-64">Login</button>
-	</div>
-</div>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="*******">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="onLogin()" [disabled]="regForm.invalid">Login</button>
+</form>
+
+
+<!-- <div> -->
+	<!-- <div class="mx-10 my-4"> -->
+		<!-- <label>Name</label><br> -->
+		<!-- <input [(ngModel)]="username" style="border-color: #b9b9b9" class="appearance-none bg-transparent w-full text-gray-700 mr-3 py-1 leading-tight focus:outline-none border-b border-b-2 border-teal-500" type="text" placeholder="Michael Jackson II."/> -->
+	<!-- </div> -->
+	<!-- <div class="mx-10 my-4"> -->
+		<!-- <label>Password</label><br> -->
+		<!-- <input [(ngModel)]="password" style="border-color: #b9b9b9" class="appearance-none bg-transparent w-full text-gray-700 mr-3 py-1 leading-tight focus:outline-none border-b border-b-2 border-teal-500" type="password" placeholder="123456"/> -->
+	<!-- </div> -->
+	<!-- <div class="mx-10 my-4"> -->
+		<!-- <a href="#">Forgot password?</a> -->
+	<!-- </div> -->
+
+	<!-- <div class="mx-10 mt-12 text-center"> -->
+		<!-- <button (click)="onSubmit()" style="background-color: #395380" class="text-white font-bold py-2 px-4 rounded w-64">Login</button> -->
+	<!-- </div> -->
+<!-- </div> -->
