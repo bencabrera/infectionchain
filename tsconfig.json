@@ -23,4 +23,5 @@
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   }
+
 }

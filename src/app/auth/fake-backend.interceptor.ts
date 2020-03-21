@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
-import {RegistrationModel} from "./registration.model";
+import {RegistrationModel} from "../models/registration.model";
 
 const user  = { id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' };
 

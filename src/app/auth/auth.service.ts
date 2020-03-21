@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
-import { RegistrationModel } from './registration.model';
+import { RegistrationModel } from '../models/registration.model';
 import { AuthStateService } from './auth-state.service';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class AuthService {
 		};
 
         return this.http.post<any>(`${environment.apiUrl}/users/login`, {
-				"email": email, 
+				"email": email,
 				"password": password
 			},
 			requestOptions

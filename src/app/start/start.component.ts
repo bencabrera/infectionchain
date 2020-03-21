@@ -24,9 +24,9 @@ export class StartComponent implements OnInit {
     ngOnInit(): void {
 
         this.regForm = this.fb.group({
-            'name': ['', Validators.required],
-            'email': ['', [Validators.required, Validators.email]],
-            'password': ['', [Validators.required, Validators.minLength(4)]],
+            name: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required, Validators.minLength(4)]],
         });
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
@@ -40,12 +40,7 @@ export class StartComponent implements OnInit {
             .subscribe(
                 data => {
                     console.log(data);
-                    if (this.returnUrl) {
-                        this.router.navigate([this.returnUrl]);
-                    } else {
-                        this.router.navigate(['/']);
-                    }
-
+                    this.router.navigate(['/complete-profile']);
                 },
                 error => {
                     this.error = error;
@@ -56,4 +51,5 @@ export class StartComponent implements OnInit {
     onLogin() {
         this.router.navigate(['login'], {queryParams: {returnUrl: this.returnUrl}});
     }
+
 }
