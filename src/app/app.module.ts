@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // qr code functionality
@@ -22,6 +22,13 @@ import { JwtInterceptor } from './auth/jwt.interceptor';
 import { FakeBackendInterceptor, fakeBackendProvider } from './auth/fake-backend.interceptor';
 import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './auth/logout.component';
+import { StartComponent } from './start/start.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from "@angular/material/form-field";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from "@angular/material/input";
+import {FlexLayoutModule} from "@angular/flex-layout";
+
 
 
 @NgModule({
@@ -32,7 +39,8 @@ import { LogoutComponent } from './auth/logout.component';
 		QrCodeDisplayComponent,
 		LoginComponent,
 		HomeComponent,
-		LogoutComponent
+		LogoutComponent,
+		StartComponent
 	],
 	imports: [
 		BrowserModule,
@@ -41,10 +49,18 @@ import { LogoutComponent } from './auth/logout.component';
 		AppRoutingModule,
 		ZXingScannerModule,
 		NgxKjuaModule,
+
+		FlexLayoutModule,
+		MatButtonModule,
+		MatFormFieldModule,
+		MatInputModule,
+		BrowserAnimationsModule,
+		ReactiveFormsModule,
 	],
 	providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+		{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}},
 
         // provider used to create fake backend
         fakeBackendProvider

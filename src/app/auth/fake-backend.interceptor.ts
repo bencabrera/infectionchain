@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import {RegistrationModel} from "./registration.model";
 
 const user  = { id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' };
 
@@ -21,6 +22,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             switch (true) {
                 case url.endsWith('/login') && method === 'POST':
                     return authenticate();
+                case url.endsWith('/reg') && method === 'POST':
+                    return register();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
@@ -32,6 +35,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function authenticate() {
             const { username, password } = body;
             if (password != user.password) return error('Username or password is incorrect');
+
+            return ok({
+                jwt_token: 'fake-jwt-token'
+            })
+        }
+
+        function register() {
+            const user: RegistrationModel = body;
 
             return ok({
                 jwt_token: 'fake-jwt-token'

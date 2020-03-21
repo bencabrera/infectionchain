@@ -9,10 +9,12 @@ import { QrCodeDisplayComponent } from './qr-code-handling/qr-code-display.compo
 import { LoginComponent } from './auth/login.component';
 import { LogoutComponent } from './auth/logout.component';
 import { HomeComponent } from './home/home.component';
+import {StartComponent} from "./start/start.component";
 
 
 const routes: Routes = [
 	// public
+	{ path: 'start', component: StartComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'logout', component: LogoutComponent },
 	{ path: 'sign-up', component: SignUpComponent },

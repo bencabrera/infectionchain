@@ -71,6 +71,7 @@
       true,
       "single"
     ],
+    "whitespace": [true, "check-module"],
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
