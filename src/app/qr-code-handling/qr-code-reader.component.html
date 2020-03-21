@@ -1,0 +1,13 @@
+<div class="border border-2 border-solid border-black m-8">
+	<zxing-scanner
+		#scanner
+		[formats]="['QR_CODE']"
+		[enabled]="true"
+		[device]="selectedDevice"
+		(scanSuccess)="handleQrCodeResult($event)"
+		>
+	</zxing-scanner>	
+</div>
+<p class="text-center">
+	Focus the camera on the QR-code.
+</p>
