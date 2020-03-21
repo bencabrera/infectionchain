@@ -1,0 +1,79 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+
+        <mat-list>
+            <mat-list-item routerLink='/profile' class="item-link">
+                <mat-icon mat-list-icon>face</mat-icon>
+                <h1 mat-line>Michael Jackson</h1>
+                <small mat-line>jacksonalive@gmail.com</small>
+            </mat-list-item>
+
+            <mat-divider></mat-divider>
+
+            <mat-list-item routerLink='/fav-places' class="item-link">
+                <mat-icon mat-list-icon>star</mat-icon>
+                <div mat-line>Meine Lieblings-Orte</div>
+            </mat-list-item>
+            <mat-list-item routerLink='/timeline' class="item-link">
+                <mat-icon mat-list-icon>star</mat-icon>
+                <div mat-line>Meine Zeitachse</div>
+            </mat-list-item>
+            <mat-list-item class="item-link">
+                <mat-icon mat-list-icon>location_on</mat-icon>
+                <div mat-line>Standortfreigabe</div>
+            </mat-list-item>
+
+            <mat-divider></mat-divider>
+
+            <mat-list-item routerLink='/contacts' class="item-link">
+                <mat-icon mat-list-icon>contacts</mat-icon>
+                <div mat-line>Meine Kontakte</div>
+            </mat-list-item>
+
+            <mat-divider></mat-divider>
+
+            <mat-list-item routerLink='/dashboard' class="item-link">
+                <mat-icon mat-list-icon>dashboard</mat-icon>
+                <div mat-line>Analyticsboard</div>
+            </mat-list-item>
+            <mat-list-item routerLink='/settings' class="item-link">
+                <mat-icon mat-list-icon>settings</mat-icon>
+                <div mat-line>Einstellungen</div>
+            </mat-list-item>
+
+            <mat-divider></mat-divider>
+
+            <mat-list-item routerLink='/help' class="item-link">
+                <mat-icon mat-list-icon>help</mat-icon>
+                <div mat-line>Hilfe und Support</div>
+            </mat-list-item>
+
+            <mat-divider></mat-divider>
+
+            <mat-list-item routerLink='/logout' class="item-link">
+                <mat-icon mat-list-icon>logout</mat-icon>
+                <div mat-line>logout</div>
+            </mat-list-item>
+
+
+            <mat-list-item routerLink='/feedback' class="item-link">
+                <mat-icon mat-list-icon>feedback</mat-icon>
+                <div mat-line><u>Feedback</u></div>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxLayout="column">
+        <div fxLayout="row">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>view_headline</mat-icon>
+            </button>
+
+            <button mat-icon-button>
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+

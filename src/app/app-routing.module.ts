@@ -14,24 +14,45 @@ import { StartComponent } from './start/start.component';
 import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
 import { TravelsComponent } from './travels/travels.component';
 import { ProfileCompletedComponent } from './profile-completed/profile-completed.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 
 const routes: Routes = [
-	// public
-	{ path: 'start', component: StartComponent },
-	{ path: 'login', component: LoginComponent, canActivate: [NotLoggedInGuard] },
-	{ path: 'logout', component: LogoutComponent },
-	{ path: 'sign-up', component: SignUpComponent, canActivate: [NotLoggedInGuard] },
+    // public
+    {path: 'start', component: StartComponent, canActivate: [NotLoggedInGuard]},
+    {path: 'login', component: LoginComponent, canActivate: [NotLoggedInGuard]},
+    {path: 'logout', component: LogoutComponent},
+    {path: 'sign-up', component: SignUpComponent, canActivate: [NotLoggedInGuard]},
 
-	// logged in
-	// { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-	{ path: 'qr-code-reader', component: QrCodeReaderComponent, canActivate: [AuthGuard] },
-	{ path: '', component: QrCodeDisplayComponent, canActivate: [AuthGuard] },
-	{ path: 'qr-code-display', component: QrCodeDisplayComponent, canActivate: [AuthGuard] },
+    {path: 'complete-profile', component: CompleteProfileComponent, canActivate: [AuthGuard]},
+    {path: 'profile-completed', component: ProfileCompletedComponent, canActivate: [AuthGuard]},
+    {path: 'travels', component: TravelsComponent, canActivate: [AuthGuard]},
+
+    // logged in
+    {
+        path: '',
+        component: MainLayoutComponent,
+        children: [
+            {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+        ]
+    },
+    {
+        path: '',
+        canActivate: [AuthGuard],
+        children: [
+            { path: 'profile', component: MyProfileComponent},
+            { path: 'timeline', component: TimelineComponent },
+            {path: 'qr-code-reader', component: QrCodeReaderComponent},
+            {path: 'qr-code-display', component: QrCodeDisplayComponent},
+        ]
+    },
 
 	{ path: 'complete-profile', component: CompleteProfileComponent, canActivate: [AuthGuard] },
 	{ path: 'profile-completed', component: ProfileCompletedComponent, canActivate: [AuthGuard] },
 	{ path: 'travels', component: TravelsComponent, canActivate: [AuthGuard] },
+
 ];
 
 @NgModule({

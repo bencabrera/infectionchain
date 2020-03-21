@@ -1,0 +1,22 @@
+:host {
+  mat-sidenav-container {
+    height: 100vh;
+
+    mat-sidenav {
+      height: 100vh;
+
+      mat-list-item {
+        padding-left: 16px;
+        padding-right: 24px;
+
+        &.item-link {
+          cursor: pointer;
+        }
+      }
+    }
+
+    mat-sidenav-content {
+      height: 100vh;
+    }
+  }
+}

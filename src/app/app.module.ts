@@ -34,24 +34,34 @@ import { CompleteProfileComponent } from './complete-profile/complete-profile.co
 import { TravelsComponent } from './travels/travels.component';
 import { ProfileCompletedComponent } from './profile-completed/profile-completed.component';
 import { MatListModule } from '@angular/material/list';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { TimelineComponent } from './timeline/timeline.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		SignUpComponent,
-		QrCodeReaderComponent,
-		QrCodeDisplayComponent,
-		LoginComponent,
-		HomeComponent,
-		LogoutComponent,
-		StartComponent,
+    declarations: [
+        AppComponent,
+        SignUpComponent,
+        QrCodeReaderComponent,
+        QrCodeDisplayComponent,
+        LoginComponent,
+        HomeComponent,
+        LogoutComponent,
+        StartComponent,
         CompleteProfileComponent,
         TravelsComponent,
         TravelComponent,
-        ProfileCompletedComponent
-	],
-	imports: [
+        ProfileCompletedComponent,
+        MainLayoutComponent,
+        MyProfileComponent,
+        TimelineComponent,
+        BreadcrumbComponent
+    ],
+    imports: [
         CommonModule,
 		BrowserModule,
 		FormsModule,
@@ -71,6 +81,8 @@ import { MatListModule } from '@angular/material/list';
         MatBottomSheetModule,
         MatCardModule,
         MatListModule,
+        MatMenuModule,
+        MatSidenavModule,
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
