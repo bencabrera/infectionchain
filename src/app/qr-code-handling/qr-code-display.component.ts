@@ -15,7 +15,6 @@ export class QrCodeDisplayComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.qrService.getQrCode().subscribe((qrCode) => {
-			console.log("display", qrCode);
 			this.qrCode = qrCode;
 		});
 	}

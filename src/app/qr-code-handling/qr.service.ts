@@ -17,7 +17,7 @@ export class QrService {
 			responseType: 'text'
 		};
 
-        return this.http.get<any>(`${environment.apiUrl}/qr-code`, requestOptions);
+        return this.http.get<any>(`${environment.apiUrl}/users/qr-code`, requestOptions);
     }
 
 	registerContactEvent(scannedQr) {

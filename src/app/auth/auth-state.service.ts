@@ -13,13 +13,12 @@ export class AuthStateService {
         if (tmp) {
             this.jwtToken = tmp;
             this.isLoggedIn = true;
-            console.log('already logged in');
         }
     }
 
     login(jwtToken) {
         this.jwtToken = jwtToken;
-        localStorage.setItem('jwt_token', JSON.stringify(jwtToken));
+        localStorage.setItem('jwt_token', jwtToken);
         this.isLoggedIn = true;
     }
 

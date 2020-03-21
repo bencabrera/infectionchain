@@ -39,7 +39,6 @@ export class StartComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    console.log(data);
                     this.router.navigate(['/complete-profile']);
                 },
                 error => {
