@@ -25,6 +25,7 @@
     "@angular/router": "~9.0.3",
     "@zxing/ngx-scanner": "^3.0.0",
     "ngx-kjua": "^1.7.0",
+    "ol": "^6.2.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

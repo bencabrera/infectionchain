@@ -34,6 +34,7 @@ import { CompleteProfileComponent } from './complete-profile/complete-profile.co
 import { TravelsComponent } from './travels/travels.component';
 import { ProfileCompletedComponent } from './profile-completed/profile-completed.component';
 import { MatListModule } from '@angular/material/list';
+import { MapPickerComponent } from './map-picker/map-picker.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { MatListModule } from '@angular/material/list';
         CompleteProfileComponent,
         TravelsComponent,
         TravelComponent,
-        ProfileCompletedComponent
+        ProfileCompletedComponent,
+        MapPickerComponent
 	],
 	imports: [
         CommonModule,

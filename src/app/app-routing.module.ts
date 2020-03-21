@@ -9,6 +9,7 @@ import { QrCodeReaderComponent } from './qr-code-handling/qr-code-reader.compone
 import { QrCodeDisplayComponent } from './qr-code-handling/qr-code-display.component';
 import { LoginComponent } from './auth/login.component';
 import { LogoutComponent } from './auth/logout.component';
+import { MapPickerComponent } from './map-picker/map-picker.component';
 import { HomeComponent } from './home/home.component';
 import { StartComponent } from './start/start.component';
 import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
@@ -28,6 +29,8 @@ const routes: Routes = [
 	{ path: 'qr-code-reader', component: QrCodeReaderComponent, canActivate: [AuthGuard] },
 	{ path: '', component: QrCodeDisplayComponent, canActivate: [AuthGuard] },
 	{ path: 'qr-code-display', component: QrCodeDisplayComponent, canActivate: [AuthGuard] },
+
+	{ path: 'map-picker', component: MapPickerComponent, canActivate: [AuthGuard] },
 
 	{ path: 'complete-profile', component: CompleteProfileComponent, canActivate: [AuthGuard] },
 	{ path: 'profile-completed', component: ProfileCompletedComponent, canActivate: [AuthGuard] },
