@@ -21,9 +21,9 @@ const routes: Routes = [
 	{ path: 'sign-up', component: SignUpComponent, canActivate: [NotLoggedInGuard] },
 
 	// logged in
-	{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
+	// { path: '', component: HomeComponent, canActivate: [AuthGuard] },
 	{ path: 'qr-code-reader', component: QrCodeReaderComponent, canActivate: [AuthGuard] },
-	{ path: 'qr-code-display', component: QrCodeDisplayComponent, canActivate: [AuthGuard] },
+	{ path: '', component: QrCodeDisplayComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

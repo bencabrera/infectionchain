@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { QrService } from './qr.service';
 
 @Component({
-  selector: 'app-qr-code-display',
-  templateUrl: './qr-code-display.component.html',
-  styleUrls: ['./qr-code-display.component.scss']
+	selector: 'app-qr-code-display',
+	templateUrl: './qr-code-display.component.html',
+	styleUrls: ['./qr-code-display.component.scss']
 })
 export class QrCodeDisplayComponent implements OnInit {
 
-  constructor() { }
+	constructor(private router: Router, private qrService: QrService) { }
 
-  ngOnInit(): void {
-  }
+	qrCode: string = "hallo";
 
+	ngOnInit(): void {
+		this.qrService.getQrCode().subscribe((qrCode) => {
+			console.log("display", qrCode);
+			this.qrCode = qrCode;
+		});
+	}
+
+	toQrReader() {
+		this.router.navigate(['/qr-code-reader']);
+	}
 }
