@@ -1,1 +1,35 @@
-<p>timeline works!</p>
+<app-breadcrumb title="Zeitachse"></app-breadcrumb>
+
+<div fxLayout="row" fxLayoutAlign="begin center" class="heading">
+    <mat-form-field appearance="standard">
+        <mat-select [(value)]="selectedMonth">
+            <mat-option *ngFor="let month of months" [value]="month">
+                {{month}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div fxFlex="1 1 auto"></div>
+    <button mat-icon-button><mat-icon>search</mat-icon></button>
+    <button mat-icon-button><mat-icon>event</mat-icon></button>
+</div>
+<div class="content">
+
+    <div *ngFor="let date of eventsByDate() | keyvalue">
+        <div class="date">
+            {{ date.key | date: 'dd' }}<br>
+            {{ date.key | date: 'EEEE' }}
+        </div>
+
+        <mat-card *ngFor="let event of date.value">
+            <mat-card-content gdAreas="img title more | img time more | img desc more" gdColumns="40px auto 40px">
+                <img gdArea="img" [src]="event.img">
+                <div gdArea="title">{{event.title}}</div>
+                <small gdArea="time">{{event.from | date: 'HH:mm'}} - {{event.to | date: 'HH:mm'}}</small>
+                <small gdArea="desc">{{event.description}}</small>
+                <button gdArea="more" mat-icon-button><mat-icon>more_vert</mat-icon></button>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+
+</div>

@@ -40,6 +40,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -63,19 +64,19 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     ],
     imports: [
         CommonModule,
-		BrowserModule,
-		FormsModule,
-		HttpClientModule,
-		AppRoutingModule,
-		ZXingScannerModule,
-		NgxKjuaModule,
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        ZXingScannerModule,
+        NgxKjuaModule,
 
-		FlexLayoutModule,
-		MatButtonModule,
-		MatFormFieldModule,
-		MatInputModule,
-		BrowserAnimationsModule,
-		ReactiveFormsModule,
+        FlexLayoutModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
         MatIconModule,
         MatCheckboxModule,
         MatBottomSheetModule,
@@ -83,7 +84,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
         MatListModule,
         MatMenuModule,
         MatSidenavModule,
-	],
+        MatSelectModule,
+    ],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
 		// { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
