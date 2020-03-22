@@ -12,6 +12,16 @@
     }
   }
 
+  i.rectangle {
+    position: fixed;
+    top: 25vh;
+    width: 80vw;
+    height: 80vw;
+    z-index: 10;
+    border: white solid 1px;
+    left: 10vw;
+  }
+
   .text {
     position: fixed;
     top: 80vh;
