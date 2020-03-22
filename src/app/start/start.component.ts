@@ -24,7 +24,8 @@ export class StartComponent implements OnInit {
     ngOnInit(): void {
 
         this.regForm = this.fb.group({
-            name: ['', Validators.required],
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(4)]],
         });
@@ -36,12 +37,12 @@ export class StartComponent implements OnInit {
         this.loading = true;
 
         this.authService.reg(this.regForm.value)
-            .pipe(first())
             .subscribe(
                 data => {
                     this.router.navigate(['/complete-profile']);
                 },
                 error => {
+                    console.log(error);
                     this.error = error;
                     this.loading = false;
                 });

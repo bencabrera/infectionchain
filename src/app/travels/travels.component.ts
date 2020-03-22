@@ -27,7 +27,7 @@ export class TravelsComponent implements OnInit {
     }
 
     onBack() {
-
+        this.router.navigate(['/complete-profile']);
     }
 
     onSubmit() {

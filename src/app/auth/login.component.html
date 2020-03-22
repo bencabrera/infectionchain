@@ -1,24 +1,21 @@
-<div class="flex justify-center mt-10">
+<section class="content" fxLayout="column" fxLayoutGap="1em">
 	<img style="margin:auto" src="./assets/sword-stone-pull.svg"/>
-</div>
-<div class="text-center mt-3">
-	<h3 class="text-xl">Login</h3>
-</div>
-<form class="mx-10 my-4" [formGroup]="regForm" fxLayout="column" fxLayoutGap="1em">
-    <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" placeholder="jacksonalive@gmail.com">
-    </mat-form-field>
+	<h3 class="text-xl" fxFlex>Login</h3>
+	<form class="mx-10 my-4" [formGroup]="regForm" fxLayout="column" fxLayoutGap="1em">
+		<mat-form-field>
+			<mat-label>Email</mat-label>
+			<input matInput formControlName="email" placeholder="jacksonalive@gmail.com">
+		</mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput formControlName="password" type="password" placeholder="*******">
-    </mat-form-field>
+		<mat-form-field>
+			<mat-label>Password</mat-label>
+			<input matInput formControlName="password" type="password" placeholder="*******">
+		</mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="onLogin()" [disabled]="regForm.invalid">Login</button>
-</form>
+		<button mat-raised-button color="primary" (click)="onLogin()" [disabled]="regForm.invalid">Login</button>
+	</form>
 
-
+</section>
 <!-- <div> -->
 	<!-- <div class="mx-10 my-4"> -->
 		<!-- <label>Name</label><br> -->
