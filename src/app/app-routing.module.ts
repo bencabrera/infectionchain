@@ -17,6 +17,8 @@ import { ProfileCompletedComponent } from './profile-completed/profile-completed
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { MyFavoritPlacesComponent } from './my-favorit-places/my-favorit-places.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 
 const routes: Routes = [
@@ -43,7 +45,9 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
             { path: 'profile', component: MyProfileComponent},
+            { path: 'fav-places', component: MyFavoritPlacesComponent},
             { path: 'timeline', component: TimelineComponent },
+            { path: 'contacts', component: ContactsComponent },
             {path: 'qr-code-reader', component: QrCodeReaderComponent},
             {path: 'qr-code-display', component: QrCodeDisplayComponent},
         ]

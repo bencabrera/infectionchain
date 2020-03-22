@@ -1,0 +1,27 @@
+<app-breadcrumb title="Kontakte"></app-breadcrumb>
+
+<div fxLayout="row" fxLayoutAlign="begin center" class="heading">
+    <mat-form-field appearance="standard">
+        <mat-select [(value)]="selectedFilter">
+            <mat-option *ngFor="let filter of filters" [value]="filter">
+                {{ filter }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div fxFlex="1 1 auto"></div>
+    <div class="heading-add-button">
+        <button mat-fab color="primary" ><mat-icon>add</mat-icon></button>
+    </div>
+</div>
+<section>
+    <mat-list>
+        <mat-list-item *ngFor="let contact of contacts" >
+            <img mat-list-avatar [src]="contact.img" *ngIf="contact.img">
+            <div mat-list-avatar class="empty-image" *ngIf="!contact.img"></div>
+            <h3 mat-line >{{contact.name}}</h3>
+            <span mat-line>{{contact.description}}</span>
+            <mat-divider></mat-divider>
+
+        </mat-list-item>
+    </mat-list>
+</section>

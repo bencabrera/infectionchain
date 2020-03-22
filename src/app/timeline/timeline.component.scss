@@ -1,21 +1,8 @@
 :host {
 
-  .heading {
-    border-bottom: #bdbdbd solid 1px;
-    padding-left: 24px;
-    padding-right: 24px;
 
-    mat-form-field {
 
-      width: 100px;
-      ::ng-deep .mat-form-field-underline {
-        height:0;
-      }
-    }
 
-  }
-  .content{
-    margin: 24px;
 
     mat-card {
       margin-left: 100px;
@@ -30,7 +17,7 @@
       font-size: smaller;
     }
 
-  }
+
 
 
 }

@@ -41,6 +41,8 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MyFavoritPlacesComponent } from './my-favorit-places/my-favorit-places.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { MatSelectModule } from '@angular/material/select';
         MainLayoutComponent,
         MyProfileComponent,
         TimelineComponent,
-        BreadcrumbComponent
+        BreadcrumbComponent,
+        MyFavoritPlacesComponent,
+        ContactsComponent
     ],
     imports: [
         CommonModule,

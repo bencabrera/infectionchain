@@ -14,15 +14,29 @@ p {
 	text-justify: inter-word;
 }
 
+.heading {
+	border-bottom: #bdbdbd solid 1px;
+	padding-left: 24px;
+	padding-right: 24px;
 
-h1 {
-	font-weight: 600;
-	font-size: 26px;
+	mat-form-field {
+
+		width: 100px;
+		.mat-form-field-underline {
+			height:0;
+		}
+
+	}
+
+	.heading-add-button {
+		top: 40px;
+		position: relative;
+	}
+
 }
 
-h3 {
-	font-weight: 500;
-	font-size: 26px;
+.content {
+	margin: 24px;
 }
 
 small {
