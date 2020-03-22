@@ -74,10 +74,8 @@ export class QrCodeReaderComponent implements OnInit, AfterViewInit {
 	}
 
     handleQrCodeResult(resultString: string) {
-		console.log("trying to register contact event", resultString);
 		this.qrService.registerContactEvent(resultString).subscribe(()=> {
-			console.log("registered contact event for", resultString);
-			this.router.navigate(['']);
+			this.router.navigate(['timeline']);
 		});
 
 		// this.public_patient_service.check_if_patient_exists(pid).subscribe((result) => {
