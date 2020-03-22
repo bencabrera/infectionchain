@@ -1,18 +1,23 @@
-<app-breadcrumb></app-breadcrumb>
+<app-breadcrumb title="Scan"></app-breadcrumb>
 
 
-<div class="text-center">
-	<h1 class="font-bold text-3xl mt-4">QR Code scannen</h1>
-	<p class="text-center mt-8">
-	Fokussiere die Kamera auf den QR Code.
-	</p>
+<p class="text">
+	Halte die Kamera über den QR Code um diesen zu scannen
+</p>
+
+<div class="lib">
+	<img src="https://s3-alpha-sig.figma.com/img/eb57/9e12/5bf02cd82e8c90c2355f5525a3576427?Expires=1585526400&Signature=GkgGhjUc5-XG5TyACE444U-hJSvnBAWp5kWHZsYFApH0EkkLrGFL0PP67yEF-eVt8bqwWZwb4MiJpLYrdNAg9~nE6zxycTYSTQJoWqgWsRLlG-eO-2fZLzt3num8DNi4TCmzxbd0tpaTxUo9Mqt8xq~XXPjwQQwfPvkk6hzY4ASu1HkSvy~y3dXf1ljQurzgoqFQJI8krzulJh5EN3jsEgq6BggKSeTb8sshhhcwd9GA761LrQB567GJBh~wlG73IHjxLObluFxuzjYsfWgO7OI~igJL3eSoPzA-eVRWwYDCoaae08jBbruxQa6rppVFiwdP8P3sjRr~Jhwmaw8ZGA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+	width="20px" class="">
+	<span>QR-Code aus Library verwenden</span>
 </div>
-<div class="border border-2 border-solid border-black m-8">
-	<zxing-scanner
+
+<zxing-scanner
 		#scanner
 		[formats]="['QR_CODE']"
 		[device]="selectedDevice"
 		(scanSuccess)="handleQrCodeResult($event)"
-		>
-	</zxing-scanner>	
-</div>
+>
+</zxing-scanner>
+
+
+
