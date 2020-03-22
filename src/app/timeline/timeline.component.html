@@ -14,7 +14,7 @@
 </div>
 <div class="content">
 
-    <div *ngFor="let date of eventsByDate() | keyvalue">
+    <div *ngFor="let date of eventsByDate() | keyvalue: sortNull">
         <div class="date">
             {{ date.key | date: 'dd' }}<br>
             {{ date.key | date: 'EEEE' }}
@@ -28,7 +28,7 @@
                     {{event.title}}
                     <mat-icon *ngIf="event.status === 'green'" class="status green">panorama_fisheye</mat-icon>
                 </div>
-                <small gdArea="time">{{event.from | date: 'HH:mm'}} - {{event.to | date: 'HH:mm'}}</small>
+                <small gdArea="time">{{event.begin | date: 'HH:mm'}} <ng-container *ngIf="event.to">- {{event.to | date: 'HH:mm'}}</ng-container></small>
                 <small gdArea="desc">{{event.description}}</small>
                 <button gdArea="more" mat-icon-button><mat-icon>more_vert</mat-icon></button>
             </mat-card-content>
