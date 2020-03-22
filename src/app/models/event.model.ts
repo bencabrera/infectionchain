@@ -4,4 +4,6 @@ export interface EventModel {
     from: Date;
     to: Date;
     description?: string;
+    icon?: string;
+    status?: 'green' | 'red';
 }
