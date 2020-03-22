@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { icon, LatLng, latLng, LatLngLiteral, Layer, MapOptions, marker, polygon, tileLayer } from 'leaflet';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -48,7 +50,7 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
 
@@ -72,6 +74,7 @@ export class HomeComponent implements OnInit {
       ];
       this.center = pos;
     });
+
   }
 
   getCurrentPosition(): Promise<LatLng> {

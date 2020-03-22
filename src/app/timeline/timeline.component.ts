@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventModel } from '../models/event.model';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-timeline',
@@ -14,10 +16,36 @@ export class TimelineComponent implements OnInit {
 
     events: EventModel[];
 
-    constructor() {
+    constructor(private http: HttpClient) {
     }
 
     ngOnInit(): void {
+
+        this.http.get<{
+            locationEvent: {
+                externalId: string,
+                latitude: number,
+                longitude: number,
+                name: string
+            },
+            timestamp: Date,
+            username1: string,
+            username2: string
+        }[]>(`${environment.apiUrl}/contact-event?authenticated=true&credentials=%7B%7D&details=%7B%7D&principal=%7B%7D`).subscribe(data => {
+            console.log(data);
+            this.events = [
+                ...(data.map( d => {
+                    return {
+                        title: `Kontakt mit ${d.username1} und  ${d.username2}`,
+                        from: d.timestamp,
+                        to: d.timestamp
+                    };
+                 }
+                )),
+                ...this.events
+            ]
+        });
+
         this.events = [
             {
                 title: 'Zuhause',
