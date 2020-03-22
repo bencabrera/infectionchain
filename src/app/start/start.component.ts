@@ -24,7 +24,8 @@ export class StartComponent implements OnInit {
     ngOnInit(): void {
 
         this.regForm = this.fb.group({
-            name: ['', Validators.required],
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(4)]],
         });

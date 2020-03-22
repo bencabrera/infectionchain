@@ -2,19 +2,26 @@
     <img style="margin:auto" src="./assets/sword-stone-pull.svg"/>
     <h3 class="text-xl">Werde Teil der weltgrößten Geminschaft ...</h3>
     <form class="mx-10 my-4" [formGroup]="regForm" fxLayout="column" fxLayoutGap="1em">
-        <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name" placeholder="Michael Jackson II.">
-        </mat-form-field>
+        <div fxLayout="row" fxLayout="row" fxLayoutGap="1em">
+            <mat-form-field fxFlex="1 1 auto">
+                <mat-label>Vorname</mat-label>
+                <input matInput formControlName="firstName" placeholder="Michael" required>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="1 1 auto">
+                <mat-label>Nachname</mat-label>
+                <input matInput formControlName="lastName" placeholder="Jackson II."  required>
+            </mat-form-field>
+        </div>
 
         <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput formControlName="email" placeholder="jacksonalive@gmail.com">
+            <input matInput formControlName="email" placeholder="jacksonalive@gmail.com"  required>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput formControlName="password" type="password" placeholder="*******">
+            <input matInput formControlName="password" type="password" placeholder="*******"  required>
         </mat-form-field>
 
         <button mat-raised-button color="primary" (click)="onReg()" [disabled]="regForm.invalid">Registrieren</button>

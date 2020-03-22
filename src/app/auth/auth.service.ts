@@ -32,11 +32,14 @@ export class AuthService {
     }
 
     reg(user: RegistrationModel) {
-        return this.http.post<any>(`${environment.apiUrl}/reg`, user)
-            .pipe(map(response => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('jwt_token', response.jwt_token);
-                this.authState.isLoggedIn = true;
-            }));
+        return this.http.post<any>(`${environment.apiUrl}/users`, {
+            ...user,
+            userName: user.email
+        }).pipe(map(response => {
+            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem('jwt_token', response.jwt_token);
+            this.authState.isLoggedIn = true;
+            return response;
+        }));
     }
 }
