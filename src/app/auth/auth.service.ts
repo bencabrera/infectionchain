@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { flatMap, map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { RegistrationModel } from '../models/registration.model';
@@ -32,14 +32,14 @@ export class AuthService {
     }
 
     reg(user: RegistrationModel) {
-        return this.http.post<any>(`${environment.apiUrl}/users`, {
+
+        return this.http.post(`${environment.apiUrl}/users`, {
             ...user,
             userName: user.email
-        }).pipe(map(response => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('jwt_token', response.jwt_token);
-            this.authState.isLoggedIn = true;
-            return response;
+        }, {
+            responseType: 'text'
+        }).pipe(flatMap(response => {
+            return this.login(user.email, user.password);
         }));
     }
 }

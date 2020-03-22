@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-complete-profile',
@@ -12,11 +14,10 @@ export class CompleteProfileComponent implements OnInit {
 
   profilForm: FormGroup;
   journeyForm: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.profilForm = this.fb.group({
-      name: ['', Validators.required],
       birthday: [null, Validators.required],
       phone: [],
       street: [],
@@ -34,6 +35,16 @@ export class CompleteProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigate(['/travels']);
+
+    const value = this.profilForm.value;
+    this.http.post(`${environment.apiUrl}/users/address`, {
+      city: value.city,
+      country: value.country,
+      postalCode: value.zip,
+      streetname: value.street,
+      type: ''
+    }).subscribe(response => {
+      this.router.navigate(['/travels']);
+    });
   }
 }

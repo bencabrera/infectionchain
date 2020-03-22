@@ -1,59 +1,58 @@
-<app-breadcrumb></app-breadcrumb>
+<section class="content">
+    <form [formGroup]="profilForm" fxLayout="column" fxLayoutGap="1em">
+        <h3>Schritt 1 von 2</h3>
 
-<form [formGroup]="profilForm" fxLayout="column" fxLayoutGap="1em">
-    <h1>Vervollständige dein Profil</h1>
+        <h1>Vervollständige dein Profil</h1>
 
-    <div fxLayout="row" fxLayoutGap="1em">
-        <mat-icon>person</mat-icon>
-        <p>Deine Daten können lediglich deine Freunde sehen. Für uns ist es wichtig, dass du wirklich du bist.</p>
-    </div>
+        <div fxLayout="row" fxLayoutGap="1em">
+            <mat-icon>person</mat-icon>
+            <p>Deine Daten können lediglich deine Freunde sehen. Für uns ist es wichtig, dass du wirklich du bist.</p>
+        </div>
 
-    <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="" formControlName="name" required>
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Geburtstrag</mat-label>
+            <input matInput placeholder="" formControlName="birthday" required type="date">
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Geburtstrag</mat-label>
-        <input matInput placeholder="" formControlName="birthday" required type="date">
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Telefonnummer</mat-label>
+            <input matInput placeholder="" formControlName="phone" type="tel">
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Telefonnummer</mat-label>
-        <input matInput placeholder="" formControlName="phone" type="tel">
-    </mat-form-field>
+        <div fxLayout="row" fxLayoutGap="1em">
+            <mat-icon>place</mat-icon>
+            <p>Mit deinem Wohnsitz verrifizieren wir dich als Person und erstellen ir deinen Notfallpass.</p>
+        </div>
 
-    <div fxLayout="row" fxLayoutGap="1em">
-        <mat-icon>place</mat-icon>
-        <p>Mit deinem Wohnsitz verrifizieren wir dich als Person und erstellen ir deinen Notfallpass.</p>
-    </div>
+        <mat-form-field>
+            <mat-label>Straße mit Hausnummer</mat-label>
+            <input matInput placeholder="" formControlName="street" >
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Straße mit Hausnummer</mat-label>
-        <input matInput placeholder="" formControlName="street" >
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Postleitzahl</mat-label>
-        <input matInput placeholder="" formControlName="zip" >
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Ort</mat-label>
-        <input matInput placeholder="" formControlName="city" >
-    </mat-form-field>
+        <div fxLayout="row" fxLayoutGap="1em">
+            <mat-form-field fxFlex="1 1 auto">
+                <mat-label>Postleitzahl</mat-label>
+                <input matInput placeholder="" formControlName="zip" >
+            </mat-form-field>
+            <mat-form-field fxFlex="2 1 auto">
+                <mat-label>Ort</mat-label>
+                <input matInput placeholder="" formControlName="city" >
+            </mat-form-field>
+        </div>
 
-    <mat-form-field>
-        <mat-label>Land</mat-label>
-        <input matInput placeholder="" formControlName="country" >
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Land</mat-label>
+            <input matInput placeholder="" formControlName="country" >
+        </mat-form-field>
 
-    <mat-label>Profil</mat-label>
-    <input placeholder="" formControlName="img" type="file">
+        <mat-label>Profil</mat-label>
+        <input placeholder="" formControlName="img" type="file">
 
-    <div fxLayout="row" fxLayoutGap="1em">
-        <mat-checkbox formControlName="correctness" color="primary"></mat-checkbox>
-        <small>Hiermit bestätige ich die Richtigkeit meiner Angaben</small>
-    </div>
-    <button mat-raised-button (click)="onSubmit()" [disabled]="profilForm.invalid" color="primary">Weiter</button>
-    <button mat-button (click)="onBack()">zurück</button>
-</form>
-
+        <div fxLayout="row" fxLayoutGap="1em">
+            <mat-checkbox formControlName="correctness" color="primary"></mat-checkbox>
+            <small>Hiermit bestätige ich die Richtigkeit meiner Angaben</small>
+        </div>
+        <button mat-raised-button (click)="onSubmit()" [disabled]="profilForm.invalid" color="primary">Weiter</button>
+        <button mat-button (click)="onBack()">zurück</button>
+    </form>
+</section>

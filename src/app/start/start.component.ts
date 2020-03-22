@@ -37,12 +37,12 @@ export class StartComponent implements OnInit {
         this.loading = true;
 
         this.authService.reg(this.regForm.value)
-            .pipe(first())
             .subscribe(
                 data => {
                     this.router.navigate(['/complete-profile']);
                 },
                 error => {
+                    console.log(error);
                     this.error = error;
                     this.loading = false;
                 });

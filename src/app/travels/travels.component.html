@@ -1,23 +1,28 @@
-<div fxLayout="column" fxLayoutGap="1em">
-    <ng-template matStepLabel>Reisen</ng-template>
+<section class="content">
+    <div fxLayout="column" fxLayoutGap="1em">
+        <ng-template matStepLabel>Reisen</ng-template>
 
-    <h3>Bist du in den letzten 4-6 Wochen verreist?</h3>
+        <h3>Schritt 2 von 2</h3>
+        <h1>Bist du in den letzten 4-6 Wochen verreist?</h1>
 
-    <small *ngIf="journeys.length > 0">Eingetragene Reisen</small>
-    <mat-card *ngFor="let journey of journeys" >
-        <mat-card-content gdAreas="flag name opt | flag date date" gdColumns="80px auto 40px">
-            <img gdArea="flag" src="https://www.countryflags.io/{{journey.countryCode}}/flat/64.png">
-            <h2 gdArea="name">{{journey.countryName}}</h2>
-            <button gdArea="opt" mat-icon-button><mat-icon>more_vert</mat-icon></button>
-            <small gdArea="date">{{ journey.from | date }} - {{ journey.to | date }} </small>
-        </mat-card-content>
-    </mat-card>
+        <div fxLayout="row center" fxLayoutGap="1em" fxLayoutAlign="start center" (click)="onAdd()">
+            <button mat-mini-fab color="primary"><mat-icon>flight</mat-icon></button>
+            <div>Reise hinzufügen</div>
+        </div>
 
-    <div fxLayout="row center" fxLayoutGap="1em" fxLayoutAlign="start center" (click)="onAdd()">
-        <button mat-mini-fab color="primary"><mat-icon>flight</mat-icon></button>
-        <div>Reise hinzufügen</div>
+        <small *ngIf="journeys.length > 0">Eingetragene Reisen</small>
+        <mat-card *ngFor="let journey of journeys" >
+            <mat-card-content gdAreas="flag name opt | flag date date" gdColumns="80px auto 40px">
+                <img gdArea="flag" src="https://www.countryflags.io/{{journey.countryCode}}/flat/64.png">
+                <h2 gdArea="name">{{journey.countryName}}</h2>
+                <button gdArea="opt" mat-icon-button><mat-icon>more_vert</mat-icon></button>
+                <small gdArea="date">{{ journey.from | date }} - {{ journey.to | date }} </small>
+            </mat-card-content>
+        </mat-card>
+
+
+
+        <button mat-raised-button (click)="onSubmit()" color="primary">{{ finalLabel() }}</button>
+        <button mat-button (click)="onBack()" >zurück</button>
     </div>
-
-    <button mat-raised-button (click)="onSubmit()" color="primary">{{ finalLabel() }}</button>
-    <button mat-button (click)="onBack()" >zurück</button>
-</div>
+</section>
