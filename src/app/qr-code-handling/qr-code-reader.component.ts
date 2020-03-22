@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 import { QrService } from './qr.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-qr-code-reader',
@@ -21,7 +22,7 @@ export class QrCodeReaderComponent implements OnInit, AfterViewInit {
     @ViewChild('scanner')
     scanner: ZXingScannerComponent;
 
-	constructor(private qrService: QrService) { }
+	constructor(private qrService: QrService, private router: Router) { }
 
 	ngOnInit(): void {
 	}
@@ -76,6 +77,7 @@ export class QrCodeReaderComponent implements OnInit, AfterViewInit {
 		console.log("trying to register contact event", resultString);
 		this.qrService.registerContactEvent(resultString).subscribe(()=> {
 			console.log("registered contact event for", resultString);
+			this.router.navigate(['']);
 		});
 
 		// this.public_patient_service.check_if_patient_exists(pid).subscribe((result) => {
