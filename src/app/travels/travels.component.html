@@ -10,6 +10,7 @@
             <div>Reise hinzufügen</div>
         </div>
 
+        <div></div>
         <small *ngIf="journeys.length > 0">Eingetragene Reisen</small>
         <mat-card *ngFor="let journey of journeys" >
             <mat-card-content gdAreas="flag name opt | flag date date" gdColumns="80px auto 40px">
@@ -21,6 +22,7 @@
         </mat-card>
 
 
+        <div fxFlex="1 1 auto"></div>
 
         <button mat-raised-button (click)="onSubmit()" color="primary">{{ finalLabel() }}</button>
         <button mat-button (click)="onBack()" >zurück</button>
