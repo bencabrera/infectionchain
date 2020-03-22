@@ -1,0 +1,37 @@
+:host {
+
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+
+  .mat-card {
+    margin: 16px;
+  }
+  ::ng-deep .mat-tab-body {
+    margin: 1em;
+  }
+
+  .reset {
+    padding-right: 1em;
+  }
+
+  .key-value {
+    label {
+      font-size: larger;
+    }
+    div {
+      margin: 0.5em;
+      font-size: smaller;
+      color: darkgray;
+    }
+  }
+  form {
+    padding-top: 16px;
+  }
+
+  .add-journey {
+    margin: 3em;
+  }
+
+
+}

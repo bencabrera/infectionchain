@@ -1,3 +1,90 @@
 <app-breadcrumb></app-breadcrumb>
 
-Mein Profil
+<div fxLayout="column" fxLayoutGap="16px">
+
+<div fxLayout="row">
+    <div fxFlex="1 1 80px"></div>
+    <mat-icon>
+        person
+    </mat-icon>
+    <div>
+        <h3>Michael Jackson</h3>
+        <div>jacksonalive@gmail.com</div>
+    </div>
+</div>
+
+<mat-tab-group mat-stretch-tabs style="height: 100%">
+    <mat-tab label="Meine Daten">
+        <div fxLayout="column" fxLayoutGap="1em" fxLayoutAlign="start space-between">
+            <div class="key-value">
+                <label>Name</label>
+                <div>{{profile.name}}</div>
+            </div>
+            <div class="key-value">
+                <label>Email</label>
+                <div>{{profile.email}}</div>
+            </div>
+            <div fxLayout="row">
+                <div class="key-value">
+                    <label>Password</label>
+                    <div>**********</div>
+                </div>
+                <div fxFlex="1 1 auto"></div>
+                <div class="reset">reset</div>
+            </div>
+
+            <div>
+                &nbsp;
+            </div>
+
+            <div class="key-value">
+                <label>Adresse</label>
+                <div>{{profile.street}}<br>{{profile.zip}} {{profile.city}}</div>
+            </div>
+
+            <div class="key-value">
+                <label>Telefon</label>
+                <div>{{profile.phone}}</div>
+            </div>
+
+            <button mat-raised-button color="primary">Call in Sick</button>
+        </div>
+
+
+
+    </mat-tab>
+    <mat-tab label="Meine Reisen" fxLayout="column" fxLayoutGap="1em" fxLayoutAlign="start space-between">
+        <div fxLayout="row center" fxLayoutGap="1em" fxLayoutAlign="start center" (click)="onAdd()" class="add-journey">
+            <button mat-mini-fab color="primary"><mat-icon>flight</mat-icon></button>
+            <div>Reise hinzufügen</div>
+        </div>
+
+        <div class="key-value">
+            <div>Eingetragene Reisen</div>
+        </div>
+
+        <mat-card *ngFor="let journey of journeys" >
+            <mat-card-content gdAreas="flag name opt | flag date date" gdColumns="80px auto 40px">
+                <img gdArea="flag" src="https://www.countryflags.io/{{journey.countryCode}}/flat/64.png">
+                <h2 gdArea="name">{{journey.countryName}}</h2>
+                <button gdArea="opt" mat-icon-button><mat-icon>more_vert</mat-icon></button>
+                <small gdArea="date">{{ journey.from | date }} - {{ journey.to | date }} </small>
+            </mat-card-content>
+        </mat-card>
+
+        <div>
+            &nbsp;
+        </div>
+
+        <div class="key-value" fxLayout="row" fxLayoutAlign="start center">
+            <div><mat-icon>flight</mat-icon></div>
+            <div>Archivierte Reisen</div>
+            <div fxFlex="1 1 auto"></div>
+            <div>4</div>
+            <div><button mat-icon-button><mat-icon>keyboard_arrow_down</mat-icon></button></div>
+        </div>
+
+    </mat-tab>
+</mat-tab-group>
+
+</div>

@@ -43,6 +43,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MyFavoritPlacesComponent } from './my-favorit-places/my-favorit-places.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { ContactsComponent } from './contacts/contacts.component';
         MatMenuModule,
         MatSidenavModule,
         MatSelectModule,
+        MatTabsModule,
     ],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

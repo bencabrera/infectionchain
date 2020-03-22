@@ -14,10 +14,6 @@ export class CompleteProfileComponent implements OnInit {
   journeyForm: FormGroup;
   constructor(private fb: FormBuilder, private router: Router) { }
 
-  finalLabel() {
-    return this.journeyForm.value.journeys.length === 0 ? 'Nein, ich bin hier gewesen' : 'Fertig';
-  }
-
   ngOnInit(): void {
     this.profilForm = this.fb.group({
       name: ['', Validators.required],
@@ -32,11 +28,6 @@ export class CompleteProfileComponent implements OnInit {
     });
 
   }
-
-  journeys() {
-    return this.journeyForm.controls.journeys as FormArray;
-  }
-
 
   onBack() {
     this.router.navigate(['/']);
