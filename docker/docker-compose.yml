@@ -1,0 +1,34 @@
+version: "3.5"
+
+services:
+    infectionchain_frontend:
+        build: frontend
+        container_name: infectionchain_frontend
+        restart: always
+        volumes:
+            # - ../dist/infectionchain/:/usr/local/apache2/htdocs/
+            - ../dist/infectionchain/:/var/www/html/
+        ports:
+            - "5000:80"
+        
+        networks:
+            bencabrera:
+                aliases:
+                    - infectionchain.bencabrera.de
+
+    infectionchain_backend:
+        build: backend
+        container_name: infectionchain_backend
+        restart: always
+        ports:
+            - "8080:8080"
+
+        networks:
+            bencabrera:
+                aliases:
+                    - infectionchainbackend.bencabrera.de
+
+networks:
+    bencabrera:
+        external:
+            name: bencabrera
