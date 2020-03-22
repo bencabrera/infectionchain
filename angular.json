@@ -102,6 +102,9 @@
             "browserTarget": "infectionchain:build"
           },
           "configurations": {
+            "bencabrera": {
+              "browserTarget": "infectionchain:build:bencabrera"
+            },
             "production": {
               "browserTarget": "infectionchain:build:production"
             }
