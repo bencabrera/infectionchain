@@ -1,0 +1,52 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  zxing-scanner  {
+    height: 100%;
+
+    ::ng-deep video {
+      height: 100%;
+
+    }
+  }
+
+  i.rectangle {
+    position: fixed;
+    top: 25vh;
+    width: 80vw;
+    height: 80vw;
+    z-index: 10;
+    border: white solid 1px;
+    left: 10vw;
+  }
+
+  .text {
+    position: fixed;
+    top: 80vh;
+    color: gainsboro;
+    text-align: center;
+    width: 80vw;
+    left: 10vw;
+    z-index: 10;
+    font-size: smaller;
+  }
+
+  .lib {
+    position: fixed;
+    top: 90vh;
+    color: white;
+    text-align: center;
+    width: 80vw;
+    left: 10vw;
+    z-index: 10;
+
+    span {
+      margin-left: 6px;
+      font-size: larger;
+
+    }
+  }
+
+}
