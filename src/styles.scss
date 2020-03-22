@@ -43,6 +43,37 @@ small {
 	font-size: small;
 }
 
+.key-value {
+	label {
+		font-size: larger;
+	}
+	div {
+		margin: 0.5em;
+		font-size: smaller;
+		color: darkgray;
+	}
+}
+
+button {
+	&.image {
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
+}
+
+.green {
+	color: green;
+}
+
+.red {
+	color: red;
+}
+
+.icon-margin {
+	margin-right: 16px;
+}
 
 /*
  * Theeming

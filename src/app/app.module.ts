@@ -44,6 +44,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MyFavoritPlacesComponent } from './my-favorit-places/my-favorit-places.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import { MatTabsModule } from '@angular/material/tabs';
         MatSidenavModule,
         MatSelectModule,
         MatTabsModule,
+        LeafletModule.forRoot(),
     ],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

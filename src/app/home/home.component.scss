@@ -1,0 +1,31 @@
+:host {
+  .qr-code-icon {
+    left: 85vw;
+    top: -30px;
+    position: relative;
+    z-index: 1000;
+
+    div {
+      background-image: url('https://s3-alpha-sig.figma.com/img/1aac/cd8e/e4c798d62d2a46470a59b597516d3a91?Expires=1585526400&Signature=cu5w5rbDbvYqNhhwq7rU9bMnfeeyB3qW-xa6OMv9iSz8hAlG5~oe24XxdVgeyVbTfBvbx9mG3J0Sy8MXlumJn3hOn1IQkNZEeRZhYySRPJoKhWAQO966d6ADl1ZcAJ7hrmjKdHfaUtOKYl9zDMVgfWZSwYybu4sc2yITDTI~qr12b39We7P7BSGSojowzka0hAjG1oFajlL0T4FZ9KECon9I7z1P1L~bruktvMhvlt2VtQwrz0UcfsWzc2Q9KfGDbjV9k6XaGhP1IuuEzE1Qa-zGw7oo1hvH~iOBhN9pbG6CiWNHwJu9lY5oXP0YRGMMkdHud~0VGuzFjLwg8QGGcQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+      background-size: 70%;
+      filter: invert(1);
+      height: 56px;
+      width: 56px;
+      top: -16px;
+      position: relative;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+
+  img.recommand {
+    display: block;
+    object-fit: cover;
+    width: 30vw;
+    height: 30vw;
+    min-width: 150px;
+    min-height: 150px;
+  }
+}
+
