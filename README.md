@@ -1,4 +1,4 @@
-# Infection Chain Backend
+# Infection Chain Frontend
 
 This is the frontend component of the Project Infection Chain (https://devpost.com/software/infection-chain) developed durind the #wirvsvirus hackathon March, 2020.
 
