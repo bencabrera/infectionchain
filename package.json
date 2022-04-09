@@ -26,7 +26,7 @@
     "@asymmetrik/ngx-leaflet": "^6.0.1",
     "@zxing/ngx-scanner": "^3.0.0",
     "leaflet": "^1.6.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-kjua": "^1.7.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
